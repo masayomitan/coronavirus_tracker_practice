@@ -55,8 +55,8 @@
 	<build>
   <plugins>
     <plugin>
-      <groupId>com.heroku.sdk</groupId>
-      <artifactId>heroku-maven-plugin</artifactId>
+      <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
 			<goal>build-info</goal>
 			<configuration>
               <additionalProperties>
@@ -67,8 +67,6 @@
               </additionalProperties>
 
       <version>3.6.3</version>
-
-        <appName>${heroku.appName}</appName>
 				<release>13.0.2</release>
       </configuration>
     </plugin>
