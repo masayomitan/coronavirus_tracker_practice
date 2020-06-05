@@ -102,20 +102,31 @@
 
 
 <build>
-        <pluginManagement>
-          <plugins>
-            <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-invoker-plugin</artifactId>
-              <configuration>
-                <pomExcludes>
-                  <pomExclude>multirelease-patterns/singleproject-toolchains/pom.xml</pomExclude>
-                </pomExcludes>
-              </configuration>
-            </plugin>
-          </plugins>
-        </pluginManagement>
-      </build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <configuration>
+          <compilerArgs>
+            <arg>-parameters</arg>
+            <arg>--enable-preview</arg>
+          </compilerArgs>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>3.1.0</version>
+        <configuration>
+          <additionalJOption>-J-Dfile.encoding=${console.encoding}</additionalJOption>
+          <additionalOptions>--enable-preview</additionalOptions>
+          <source>${maven.compiler.source}</source>
+          <linksource>true</linksource>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 
 
 </project>
