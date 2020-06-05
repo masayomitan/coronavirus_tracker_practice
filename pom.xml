@@ -14,9 +14,14 @@
 	<name>demo</name>
 	<description>Demo project for Spring Boot</description>
 
-	<properties>
-		<java.version>14</java.version>
-	</properties>
+ <properties>
+    <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>utf-8</project.reporting.outputEncoding>
+    <console.encoding>utf-8</console.encoding>
+    <!-- console.encoding>Windows-31J</console.encoding -->
+    <maven.compiler.source>12</maven.compiler.source>
+    <maven.compiler.target>12</maven.compiler.target>
+  </properties>
 
 <dependencies>
 		<dependency>
