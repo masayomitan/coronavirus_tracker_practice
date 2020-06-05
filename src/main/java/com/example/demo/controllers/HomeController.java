@@ -31,8 +31,8 @@ public class HomeController {
 
     //addAttributeでviewに渡す。 usage  addAttribute("変数名", オブジェクト)
     Model.addAttribute("locationStats", allStats);
-    Model.addAttribute("totalReportedCases", totalReportedCases);
-    Model.addAttribute("totalNewCases", totalNewCases);
+    Model.addAttribute("totalReportedCases", totalReportedCases + "人");
+    Model.addAttribute("totalNewCases", totalNewCases + "人");
 
     //最後はviewのhomeへ
     return "home";
