@@ -15,7 +15,7 @@
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
-		<java.version>14</java.version>
+		<java.version>11</java.version>
 	</properties>
 
 	<dependencies>
@@ -59,7 +59,7 @@
       <artifactId>heroku-maven-plugin</artifactId>
       <version>3.0.2</version>
       <configuration>
-			<release>14</release>
+			<release>10</release>
         <appName>${heroku.appName}</appName>
         <processTypes>
           <web>java $JAVA_OPTS -cp target/classes:target/dependency/* com.example.Main</web>
