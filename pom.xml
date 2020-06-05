@@ -54,13 +54,15 @@
 
 	<build>
   <plugins>
-
-<groupId>org.apache.maven.plugins</groupId>
-<artifactId>maven-compiler-plugin</artifactId>
-<version>3.6.3</version>
-
-
-</plugins>
+    <plugin>
+      <groupId>com.heroku.sdk</groupId>
+      <artifactId>heroku-maven-plugin</artifactId>
+      <version>3.0.2</version>
+      <configuration>
+        <appName>${heroku.appName}</appName>
+      </configuration>
+    </plugin>
+  </plugins>
 </build>
 
 
