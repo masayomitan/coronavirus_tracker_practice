@@ -10,26 +10,30 @@
 
 <body>
 <div class="container">
-<h1>Coronavirus Tracker Application</h1>
-<p>This application lists the current number of cases reported across the globe</p>
+<h1>コロナウイルス追跡アプリ</h1>
+<p>世界中で報告された現在の症例数を一覧表示してます  参考までに、、</p>
 
 <div class="jumbotron">
-    <h1 class="display-4" th:text="${totalReportedCases}"></h1>
-    <p class="lead">Total cases reported as of today</p>
+  <p>
+    <span ><h1 class="display-4" th:text="${totalReportedCases}"></h1></span>
+    <span ><h1>人</h1></span>
+  </p>
+    <p class="lead">今日までの世界中の合計症例報告</p>
     <hr class="my-4">
     <p>
-        <span>New cases reported since previous day:</span>
+        <span>前日に世界中で報告された新しい症例:</span>
         <span th:text="${totalNewCases}"></span>
+        <span >人</span>
     </p>
 
 </div>
 
     <table class="table">
         <tr>
-            <th>State</th>
-            <th>Country</th>
-            <th>Total cases reported</th>
-            <th>Changes since last day</th>
+            <th>州</th>
+            <th>国</th>
+            <th>合計  症例報告</th>
+            <th>前日  症例報告</th>
         </tr>
         <tr th:each="locationStat : ${locationStats}">
             <td th:text="${locationStat.state}"></td>
