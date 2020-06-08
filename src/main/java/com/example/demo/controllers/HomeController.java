@@ -21,7 +21,7 @@ public class HomeController {
   //@ModelAttributでDRYもできる https://kazkn.com/post/2017/use-model-attribute/
   public String home(Model Model){
 
-    //servicecoronaVirusDataGlobalで取得したデータをgetしてリストに代入
+    //serviceのcoronaVirusDataGlobalで取得したデータをgetしてリストに代入
     List<LocationStats> allStats = coronaVirusDataGlobal.getAllStats();
 
     //stream()でデータに対する処理（集計、変換）を行う。
