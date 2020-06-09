@@ -34,9 +34,7 @@ public class HomeController {
     Model.addAttribute("totalReportedCases", totalReportedCases + "人");
     Model.addAttribute("totalNewCases", totalNewCases + "人");
 
-    //最後はviewのhomeへ
+    //最後はtemplatesのhomeへ
     return "home";
   }
-  
-
 }

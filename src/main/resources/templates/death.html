@@ -13,15 +13,17 @@
 <h1>コロナウイルス追跡アプリ</h1>
 <p>世界中で報告された現在の死亡数を一覧表示してます  参考までに、、</p>
 
+<a href="home.html" th:href="@{/}">症例数報告へ</a>
+
 <div class="jumbotron">
   <p>
     
-    <h1 class="display-4" th:text="${totalReportedCases}"></h1>
+    <h1 class="display-4" th:text="${totalReportedDeathCases}"></h1>
     <p class="lead">今日までの世界中の合計死亡報告</p>
     <hr class="my-4">
     <p>
         <span>前日に世界中で報告された新しい死亡者:</span>
-        <span th:text="${totalNewCases}"></span>
+        <span th:text="${totalNewDeathCases}"></span>
     </p>
 
 </div>
@@ -33,11 +35,11 @@
             <th>合計  死亡報告</th>
             <th>前日  死亡報告</th>
         </tr>
-        <tr th:each="locationStat : ${locationStats}">
-            <td th:text="${locationStat.state}"></td>
-            <td th:text="${locationStat.country}"></td>
-            <td th:text="${locationStat.latestTotalCases}">0</td>
-            <td th:text="${locationStat.diffFromPrevDay}">0</td>
+        <tr th:each="deathStat : ${deathStats}">
+            <td th:text="${deathStat.state}"></td>
+            <td th:text="${deathStat.country}"></td>
+            <td th:text="${deathStat.latestTotalDeathCases}">0</td>
+            <td th:text="${deathStat.diffDeathFromPrevDay}">0</td>
         </tr>
     </table>
 </div>

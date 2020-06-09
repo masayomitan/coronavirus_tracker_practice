@@ -3,15 +3,15 @@ package com.example.demo.models;
 public class DeathStats {
   private String state;
   private String country;
-  private int latestTotalCases;
-  private int diffFromPrevDay;
+  private int latestTotalDeathCases;
+  private int diffDeathFromPrevDay;
 
-  public int getDiffFromPrevDay() {
-      return diffFromPrevDay;
+  public int getDiffDeathFromPrevDay() {
+      return diffDeathFromPrevDay;
   }
 
-  public void setDiffFromPrevDay(int diffFromPrevDay) {
-      this.diffFromPrevDay = diffFromPrevDay;
+  public void setDiffDeathFromPrevDay(int diffFromPrevDay) {
+      this.diffDeathFromPrevDay = diffFromPrevDay;
   }
 
   public String getState() {
@@ -30,21 +30,21 @@ public class DeathStats {
       this.country = country;
   }
 
-  public int getLatestTotalCases() {
-      return latestTotalCases;
+  public int getLatestTotalDeathCases() {
+      return latestTotalDeathCases;
   }
 
-  public void setLatestTotalCases(int latestTotalCases) {
-      this.latestTotalCases = latestTotalCases;
+  public void setLatestTotalDeathCases(int latestTotalDeathCases) {
+      this.latestTotalDeathCases = latestTotalDeathCases;
   }
 
   //toString()メソッドの戻り値に表示したい文字列を返すように処理を記述します。https://www.kenschool.jp/blog/?p=4020
   @Override
   public String toString() {
-      return "LocationStats{" +
+      return "deathStats{" +
               "state='" + state + '\'' +
               ", country='" + country + '\'' +
-              ", latestTotalCases=" + latestTotalCases +
+              ", latestTotalDeathCases=" + latestTotalDeathCases +
               '}';
   }
 }

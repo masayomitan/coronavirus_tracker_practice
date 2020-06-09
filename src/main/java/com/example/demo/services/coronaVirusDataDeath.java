@@ -1,5 +1,12 @@
 package com.example.demo.services;
 
+import com.example.demo.models.DeathStats;
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVRecord;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Service;
+
+import javax.annotation.PostConstruct;
 import java.io.IOException;
 import java.io.StringReader;
 import java.net.URI;
@@ -8,15 +15,6 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.annotation.PostConstruct;
-
-import com.example.demo.models.DeathStats;
-
-import org.apache.commons.csv.CSVFormat;
-import org.apache.commons.csv.CSVRecord;
-import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.stereotype.Service;
 
 @Service
 public class coronaVirusDataDeath {
@@ -30,8 +28,8 @@ public class coronaVirusDataDeath {
   }
 
   @PostConstruct
-  @Scheduled
-  public void fetchVirusData() throws IOException, InterruptedException{
+  @Scheduled(cron = "* * 2 * * *")
+  public void fetchVirusDataDeath() throws IOException, InterruptedException{
 
     List<DeathStats> newDeathStats = new ArrayList<>();
     HttpClient client = HttpClient.newHttpClient();
@@ -43,16 +41,16 @@ public class coronaVirusDataDeath {
     Iterable<CSVRecord> records = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(csvBodyReader);
 
     for(CSVRecord record : records){
-      DeathStats DeathStat = new DeathStats();
-      DeathStat.setState(record.get("Province/State"));
-      DeathStat.setCountry(record.get("Country/Region"));
+      DeathStats deathStat = new DeathStats();
+      deathStat.setState(record.get("Province/State"));
+      deathStat.setCountry(record.get("Country/Region"));
 
       int latestCases = Integer.parseInt(record.get(record.size() - 1));
       //-2は前日までの情報
       int prevDayCases = Integer.parseInt(record.get(record.size() - 2));
-      DeathStat.setLatestTotalCases(latestCases);
-      DeathStat.setDiffFromPrevDay(latestCases - prevDayCases);
-      newDeathStats.add(DeathStat);
+      deathStat.setLatestTotalDeathCases(latestCases);
+      deathStat.setDiffDeathFromPrevDay(latestCases - prevDayCases);
+      newDeathStats.add(deathStat);
     }
     this.allDeathStats = newDeathStats;
     }    
