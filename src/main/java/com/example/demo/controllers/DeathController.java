@@ -1,7 +1,11 @@
 package com.example.demo.controllers;
 
-@Controller
+import org.springframework.stereotype.Controller;
 
+
+
+@Controller
 public class DeathController {
+  
   
 }
